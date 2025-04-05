@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+    <meta name="description" content="Eccomerce page as a first project with ITI - Frontend Track">
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+
+<body>
+
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        E-SHOP
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-menu-item">Home</a></li>
+                    <li><a href="./products.html" class="nav-menu-item">Products</a></li>
+                    <li><a href="./cart.html" class="nav-menu-item">Cart</a></li>
+                    <li><a href="./wishlist.html" class="nav-menu-item">Wishlist</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <!-- <a href="#" class="nav-search-icon"><i class="bx bx-search"></i></a> -->
+                    <!-- <a href="./wishlist.html" class="nav-wishlist-icon"><i class="bx bx-heart"></i></a> -->
+                    <a href="./cart.html" class="nav-cart-icon"><span class="nav-cart-count">0</span><i
+                            class="bx bx-shopping-bag"></i></a>
+                    <div class="nav_login_btn">
+                        <a href="./login.html" class="primary_btn">
+                            <span>login</span>
+                            <i class="bx bx-user"></i>
+                        </a>
+                    </div>
+                    <button class="nav-menu-toggle"><i class="bx bx-menu"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- start design offer-scroll div  -->
+
+    <div class="offer-scroll">
+        <p>Students Now Get 10% off: <a href="#"> GET OFFER</a> </p>
+    </div>
+
+
+    <div class="cart_page">
+        <div class="container">
+            <h2 class="cart_title">Your Cart</h2>
+            <div class="row cart_div">
+                <!-- Left section (cart items) -->
+                <div class="col-8">
+                    <div class="cart-container">
+                        <!-- Added cart Items by JS -->
+
+                    </div>
+                </div>
+
+                <!-- Right section (order summary) -->
+                <div class="col-4">
+                    <div class="order-summary">
+                        <!-- add by JS -->
+
+                    </div>
+                    <button class="primary_btn checkoutBtn full mt-15">
+                        <span>Place Order</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="btn-toTop">
+        <i class="bx bx-up-arrow-alt"></i>
+    </div>
+
+    <div class="toast"></div>
+
+    <script src="../js/index.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+
+</html>

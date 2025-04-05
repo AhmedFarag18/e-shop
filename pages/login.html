@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+    <meta name="description" content="Eccomerce page as a first project with ITI - Frontend Track">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <section class="login">
+        <div class="row">
+
+            <div class="login_text">
+                <div class="form_container">
+                    <h2 class="login_title">Sign in</h2>
+                    <p class="login_desc">Login to see our best products and sales</p>
+                    <form class="login_form" id="loginForm">
+                        <div class="form_group">
+                            <div class="form_input_group">
+                                <input type="email" class="form_input" id="email" placeholder="Enter Email" required>
+                                <span class="form_input_icon">
+                                    <i class="bx bx-envelope"></i>
+                                </span>
+                            </div>
+                            <span class="error_message"></span>
+                        </div>
+
+                        <div class="form_group">
+                            <div class="form_input_group">
+                                <input type="password" class="form_input" id="password" placeholder="Enter Password"
+                                    required>
+                                <span class="form_input_icon" onclick="togglePassword()">
+                                    <i id="eye-icon" class="bx bx-lock-alt"></i>
+                                </span>
+                            </div>
+                            <span class="error_message"></span>
+                        </div>
+
+                        <button type="submit" class="primary_btn full">
+                            <span>Sign In</span>
+                        </button>
+                    </form>
+                    <p class="not_register">Don't have account? <a href="./register.html">Register Now.</a></p>
+                </div>
+            </div>
+            <div class="login_img">
+                <h3 class="login_img_text">Very good
+                    works are
+                    waiting for
+                    you Login
+                    Now!
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="../js/utils.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>

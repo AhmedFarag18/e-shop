@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+    <meta name="description" content="Eccomerce page as a first project with ITI - Frontend Track">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/orders.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        E-SHOP
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-menu-item">Home</a></li>
+                    <li><a href="./products.html" class="nav-menu-item">Products</a></li>
+                    <li><a href="./cart.html" class="nav-menu-item">Cart</a></li>
+                    <li><a href="./wishlist.html" class="nav-menu-item">Wishlist</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <!-- <a href="#" class="nav-search-icon"><i class="bx bx-search"></i></a> -->
+                    <!-- <a href="./wishlist.html" class="nav-wishlist-icon"><i class="bx bx-heart"></i></a> -->
+                    <a href="./cart.html" class="nav-cart-icon"><span class="nav-cart-count">0</span><i
+                            class="bx bx-shopping-bag"></i></a>
+                    <div class="nav_login_btn">
+                        <a href="./login.html" class="primary_btn">
+                            <span>login</span>
+                            <i class="bx bx-user"></i>
+                        </a>
+                    </div>
+                    <button class="nav-menu-toggle"><i class="bx bx-menu"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    
+
+    <section class="user_orders">
+        <h1>Your Orders</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="user_orders_list"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Details Popup -->
+    <div class="order-popup" id="orderPopup">
+        <div class="order-popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Order Details</h2>
+            <div id="orderDetails"></div>
+        </div>
+    </div>
+
+    <!-- start Footer -->
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-grid-item">
+                    <h2 class="footer-title">Company</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Brand Center</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid-item">
+                    <h2 class="footer-title">Help Center</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">Discord Server</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid-item">
+                    <h2 class="footer-title">Legal</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Licensing</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid-item">
+                    <h2 class="footer-title">Download</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">iOS</a></li>
+                        <li><a href="#">Android</a></li>
+                        <li><a href="#">Windows</a></li>
+                        <li><a href="#">MacOS</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>Designed and Developed by <a href="#" target="_blank">ITI Team</a> © 2025 ITI. All Rights
+                    Reserved.</span>
+
+            </div>
+        </div>
+    </footer>
+
+
+
+    <div class="btn-toTop">
+        <i class="bx bx-up-arrow-alt"></i>
+    </div>
+
+    <div class="toast"></div>
+
+
+    <script src="../js/index.js"></script>
+    <script src="../js/orders.js"></script>
+</body>
+
+</html>

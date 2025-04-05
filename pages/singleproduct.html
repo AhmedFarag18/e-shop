@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+    <meta name="description" content="Eccomerce page as a first project with ITI - Frontend Track">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/singleProducts.css">
+    <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        E-SHOP
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-menu-item">Home</a></li>
+                    <li><a href="./products.html" class="nav-menu-item">Products</a></li>
+                    <li><a href="./cart.html" class="nav-menu-item">Cart</a></li>
+                    <li><a href="./wishlist.html" class="nav-menu-item">Wishlist</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <!-- <a href="#" class="nav-search-icon"><i class="bx bx-search"></i></a> -->
+                    <!-- <a href="./wishlist.html" class="nav-wishlist-icon"><i class="bx bx-heart"></i></a> -->
+                    <a href="./cart.html" class="nav-cart-icon"><span class="nav-cart-count">0</span><i
+                            class="bx bx-shopping-bag"></i></a>
+                    <div class="nav_login_btn">
+                        <a href="./login.html" class="primary_btn">
+                            <span>login</span>
+                            <i class="bx bx-user"></i>
+                        </a>
+                    </div>
+                    <button class="nav-menu-toggle"><i class="bx bx-menu"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- strat single product -->
+    <div class="container">
+        <div class="row">
+            <div class="return_btn">
+                <button><i class="bx bx-left-arrow-alt"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <section class="single_product">
+        <div class="container">
+            <div class="row">
+                <div class="single_imgBox">
+                    <!-- <img src="../images/products/product-02.jpg" alt="t-shirt">
+                    <div class="single_product_label">20% OFF</div> -->
+                </div>
+
+                <div class="single_product_info">
+                    <h2 class="single_product_name"></h2>
+                    <p class="single_product_price"></p>
+
+                    <div class="single_product_rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bx-star"></i>
+                        <span>(2 reviews)</span>
+                    </div>
+
+                    <p class="single_product_description"></p>
+
+                    <div class="product_action_wrapper d-flex-center">
+                        <div class="pro-qty">
+                            <span class="dec qtybtn">-</span>
+                            <input type="text" value="1" name="qty">
+                            <span class="inc qtybtn">+</span>
+                        </div>
+
+                        <ul class="single_product_action d-flex-center">
+                            <li class="add_to_cart">
+                                <button class="add_to_cart_btn primary_btn full">
+                                    <span>Add to Cart</span>
+                                </button>
+                            </li>
+                            <li class="wishlist">
+                                <button class="wishlist_btn primary_btn fa-3x">
+                                    <span><i class="bx bx-heart"></i></span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="best-deals">
+        <div class="container">
+            <h3 class="best-deals-title">Related Products</h3>
+            <p class="best-deals-desc">Explore our Best products, carefully curated for your shopping needs.</p>
+
+            <div class="best-deals-grid">
+                <!-- Add product card her by JS -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- start Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-grid-item">
+                    <h2 class="footer-title">Company</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Brand Center</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid-item">
+                    <h2 class="footer-title">Help Center</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">Discord Server</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid-item">
+                    <h2 class="footer-title">Legal</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Licensing</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid-item">
+                    <h2 class="footer-title">Download</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">iOS</a></li>
+                        <li><a href="#">Android</a></li>
+                        <li><a href="#">Windows</a></li>
+                        <li><a href="#">MacOS</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>Designed and Developed by <a href="#" target="_blank">ITI Team</a> © 2025 ITI. All Rights
+                    Reserved.</span>
+
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast"></div>
+
+    <div class="btn-toTop">
+        <i class="bx bx-up-arrow-alt"></i>
+    </div>
+
+
+    <script src="../js/index.js"></script>
+    <script src="../js/singleproduct.js"></script>
+</body>
+
+</html>

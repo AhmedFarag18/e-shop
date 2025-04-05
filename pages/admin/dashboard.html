@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/admin/dashboard.css">
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <h4>Dashboard</h4>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="./crudproducts.html">Products</a></li>
+            <li><a href="./crudcategory.html">Categories</a></li>
+            <li><a href="./adminorders.html">Orders</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+
+    <!-- start profile -->
+    <div class="profile-container">
+        <div class="profile-card">
+            <img src="./../../images/other/unknown.jpg" alt="Profile Picture" class="profile-img">
+            <h2 class="profile-name">Admin</h2>
+            <p class="profile-title">admin@admin.com</p>
+            <p class="profile-bio">
+                You Can confirm or reject orders and create or update or delete products and catrgories.
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="../../js/admin/dashboard.js"></script>
+</body>
+
+</html>

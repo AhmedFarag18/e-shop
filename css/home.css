@@ -1,0 +1,296 @@
+.navbar {
+    top: 0;
+    position: fixed;
+    width: 90%;
+    z-index: 100;
+    display: flex;
+    padding: 25px 5px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    margin: auto;
+    left: 0;
+    right: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.navbar .primary_btn {
+    padding: 10px 20px;
+    color: #f4f4f4;
+    font-size: 15px;
+    margin: 0;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+/* ------------------- Hero section ------------------- */
+
+.hero {
+    padding: 50px 20px;
+    height: 100vh;
+    background: url('../images/home/banner/banner-02.jpg');
+    background-position: left;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .row {
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.hero_vectors img {
+    position: absolute;
+    right: 0px;
+    top: 10%;
+    width: 50px;
+    animation: spin_vector 1s ease-out -1s infinite alternate forwards;
+}
+
+@keyframes spin_vector {
+    0% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.hero_text {
+    width: 50%;
+    text-align: left;
+}
+
+.hero_sm_title {
+    font-size: 14px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 4px 8px 20px 0px #00000017;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 50px;
+}
+
+.hero_title {
+    font-size: 72px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.4;
+    color: var(--dark-color);
+}
+
+.hero_desc {
+    font-size: 15px;
+    color: var(--desc-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding: 0 20px 0 10px;
+}
+
+/* ---------------------------------------------
+   Best Categories Section
+--------------------------------------------- */
+.categories {
+    min-height: 215px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    text-align: center;
+    background-color: #fff;
+    /* background: linear-gradient(rgba(189, 189, 189, 0.759), rgba(114, 114, 114, 0.34)), url(../images/login/bg.jpg); */
+    /* background: url(../images/home/shape-1.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; */
+    color: #000000;
+}
+
+.categories-content {
+    position: relative;
+    z-index: 3;
+}
+
+.section-info {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.section-info .categories-title {
+    /* font-weight: 700; */
+    font-size: var(--title-fontSize);
+    margin-bottom: 5px;
+    color: var(--dark-color);
+    font-family: var(--title-family);
+}
+
+.section-info p {
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: 0.25px;
+    margin-bottom: 20px;
+    color: var(--desc-color);
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.category-item {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 48px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    border: 1px solid rgba(216, 226, 255, 0.175);
+    transition: all 0.3s ease;
+    width: calc(100% / 6 - 20px);
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.category-item:hover {
+    transform: translateY(-10px);
+}
+
+.category-item img {
+    display: block;
+    margin: 0 auto 25px;
+    width: 100%;
+}
+
+.category-item span {
+    display: block;
+    font-size: 16px;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+/* --------------------
+# Discount section
+----------------------- */
+
+/* Section */
+.discount-section {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+}
+
+/* Discount Card */
+.discount-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    padding: 40px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+/* Text Side */
+.discount-text {
+    flex: 1;
+    padding-left: 20px;
+    max-width: 500px;
+}
+
+/* Title Section */
+.discount-title {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.title-border {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 3px;
+    height: 100%;
+    background-color: var(--main-color);
+}
+
+.discount-title h2 {
+    font-size: 28px;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+.discount-amount {
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: var(--desc-color);
+}
+
+/* Discount Code */
+.discount-code-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.discount-label {
+    font-size: 16px;
+    color: #555;
+}
+
+.discount-code {
+    background-color: var(--main-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Image */
+.discount-image {
+    flex: 1;
+    max-width: 400px;
+}
+
+.discount-image img {
+    width: 100%;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .discount-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .discount-text {
+        padding-left: 0;
+    }
+
+    .discount-title {
+        padding-left: 0;
+    }
+
+    .title-border {
+        display: none;
+    }
+
+    .discount-image img {
+        max-width: 380px;
+        display: block;
+    }
+}

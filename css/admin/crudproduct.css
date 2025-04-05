@@ -1,0 +1,269 @@
+.crud_products {
+    height: 100%;
+
+}
+
+.addproduct {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addproduct .row {
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+
+.form_container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 23px #00000014;
+    border: 1px solid #0000001c;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: 20px auto;
+}
+
+/* start left container */
+.addproduct_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 30px;
+    flex: 1 1 60%;
+}
+
+.addproduct_title {
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--dark-color);
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.addproduct_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.grid_form_inputs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form_group {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: calc(100% / 1 - 10px);
+}
+
+.form_input_group {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.form_input {
+    background-color: #eaeaea63;
+    height: 52px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    border: 1px solid #eaeaea56;
+    transition: .3s;
+}
+
+.form_input:focus {
+    border: 1px solid #5044ff56;
+}
+
+.form_input_icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--desc-color);
+}
+
+.primary_btn {
+    margin-top: 15px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+#cancelEditBtn,
+#cancelDeleteBtn {
+    background-color: rgb(229, 52, 52);
+    color: #fff;
+    flex: 0 1 40%;
+}
+
+
+/* stsrt show all products */
+.categories_list {
+    margin-top: 20px;
+    text-align: center;
+    width: 60%;
+    margin: 20px auto 40px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00000014;
+    border: 1px solid #0000001c;
+
+}
+
+.categories_container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px auto;
+}
+
+.category_card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    border: 1px solid #6c6c6c2f;
+    transition: .3s;
+}
+
+.category_card:hover {
+    box-shadow: 0 0 15px #00000014;
+}
+
+.category_card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.category_details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.category_actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit_btn,
+.delete_btn {
+    cursor: pointer;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.edit_btn {
+    background: #ec971f;
+    color: white;
+}
+
+.delete_btn {
+    background: #c9302c;
+    color: white;
+}
+
+.edit_btn:hover {
+    background: #f0ad4e;
+}
+
+.delete_btn:hover {
+    background: #d9534f;
+}
+
+
+/* edit styles for all products */
+
+div#ProductContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product-card img {
+    width: 150px;
+    height: auto;
+}
+
+.product-card {
+    display: flex;
+    gap: 10px;
+    width: calc(100% / 2 - 10px);
+}
+
+.all_products_list {
+    width: 90%;
+    margin: 30px auto;
+}
+
+
+@media (max-width:850px) {
+
+    .product-card {
+        display: flex;
+        gap: 10px;
+        width: calc(100% / 1 - 10px);
+        /* flex-direction: column; */
+    }
+
+    .form_container {
+        width: 100%;
+    }
+
+}
+
+@media (max-width:500px) {
+
+    .product-card {
+        flex-direction: column;
+    }
+
+    .form_container {
+        width: 100%;
+    }
+
+    .primary_btn {
+        padding: 10px 20px;
+    }
+
+    .addproduct_text,
+    .form_container {
+        padding: 12px;
+    }
+}

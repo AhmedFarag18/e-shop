@@ -1,0 +1,67 @@
+/* ---------------------------------------------
+   Best Products Section
+--------------------------------------------- */
+
+/* Section Styling */
+.best-deals {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+
+/* Title */
+.best-deals-title {
+    font-size: var(--title-fontSize);
+    /* font-weight: 700; */
+    color: var(--dark-color);
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: var(--title-family);
+
+}
+
+.best-deals-desc {
+    text-align: center;
+    color: var(--desc-color);
+    margin-bottom: 40px;
+}
+
+/* Grid Layout */
+.best-deals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+.best-deals-grid.empty {
+    grid-template-columns: 1fr;
+}
+
+/*  --------------------------*/
+.wishlist_empty {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    font-size: 18px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.product-btn {
+    background-color: var(--error-color);
+}
+
+.product-btn.show_details {
+    background-color: var(--dark-color);
+    color: #fff;
+    flex: 0;
+}
+
+.remove-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px
+}
