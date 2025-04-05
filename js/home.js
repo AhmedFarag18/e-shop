@@ -1,4 +1,7 @@
-const imgPath = "../images/home/banner/";
+const isGithub = location.hostname === "ahmedfarag18.github.io";
+const basePath = isGithub ? "/e-shop/" : "/";
+
+const imgPath = basePath + "images/home/banner/";
 const heroImages = ["banner-02.jpg", "banner-03.png", "banner-04.jpg", "banner-05.jpg"];
 let heroBg = document.querySelector(".hero");
 let lastIndex = -1;
@@ -68,7 +71,7 @@ function displayProduct(product) {
                     <p class="product-price">$${product.price}</p>
                     <div class="product-card-footer">
                         <button class="product-btn-wishlist" onclick="addToWishlist(${product.id})" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
-                        <a href="../pages/singleproduct.html?id=${product.id}" class="product-btn" title="View Product Details">View Details</a>
+                        <a href="${basePath}pages/singleproduct.html?id=${product.id}" class="product-btn" title="View Product Details">View Details</a>
                     </div>
                 </div>
             </div>`

@@ -37,6 +37,35 @@ function renderCategories() {
         categoryContainer.appendChild(categoryCard);
     });
 }
+// Validation Functions
+function validateCategoryName(inputEl) {
+    const errorSpan = inputEl.nextElementSibling;
+    const name = inputEl.value.trim();
+    if (name.length < 3) {
+        errorSpan.textContent = "Category name must be at least 3 characters.";
+        return false;
+    }
+    errorSpan.textContent = "";
+    return true;
+}
+
+function validateImage(inputEl) {
+    const errorSpan = inputEl.nextElementSibling;
+    const file = inputEl.files[0];
+    if (!file) {
+        errorSpan.textContent = "Image is required.";
+        return false;
+    }
+
+    const validTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
+    if (!validTypes.includes(file.type)) {
+        errorSpan.textContent = "Only JPG, PNG, or WEBP images are allowed.";
+        return false;
+    }
+
+    errorSpan.textContent = "";
+    return true;
+}
 
 // Handle Image Upload
 const handleImageUpload = (file) => {
@@ -52,19 +81,34 @@ const handleImageUpload = (file) => {
     });
 };
 
+
+// Live validation on blur/change
+categoryNameInput.addEventListener("blur", () => validateCategoryName(categoryNameInput));
+categoryImageInput.addEventListener("change", () => validateImage(categoryImageInput));
+
+editCategoryName.addEventListener("blur", () => validateCategoryName(editCategoryName));
+editCategoryImage.addEventListener("change", () => validateImage(editCategoryImage));
+
 // Add New Category
 addCategoryForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    if (categoryNameInput.value.trim().length < 3) {
-        showToast("Category name must be at least 3 characters", "error");
+    const isNameValid = validateCategoryName(categoryNameInput);
+    const isImageValid = validateImage(categoryImageInput);
+
+    if (!isNameValid || !isImageValid) {
+        showToast("Please fix form errors before submitting.", "error");
         return;
     }
 
     const file = categoryImageInput.files[0];
     try {
         const imageUrl = await handleImageUpload(file);
-        const newCategory = { id: Date.now(), name: categoryNameInput.value.trim(), image: imageUrl };
+        const newCategory = {
+            id: Date.now(),
+            name: categoryNameInput.value.trim(),
+            image: imageUrl
+        };
         categories.push(newCategory);
         localStorage.setItem("categories", JSON.stringify(categories));
         addCategoryForm.reset();
@@ -85,21 +129,34 @@ function openEditPopup(id) {
 
 // Handle Update
 updateCategoryBtn.addEventListener("click", async () => {
+    const isNameValid = validateCategoryName(editCategoryName);
+    const file = editCategoryImage.files[0];
+    let isImageValid = true;
+
+    if (file) {
+        isImageValid = validateImage(editCategoryImage);
+    }
+
+    if (!isNameValid || !isImageValid) {
+        showToast("Please fix form errors before updating.", "error");
+        return;
+    }
+
     const category = categories.find(c => c.id === editCategoryId);
     category.name = editCategoryName.value.trim();
 
-    if (editCategoryImage.files[0]) {
+    if (file) {
         try {
-            category.image = await handleImageUpload(editCategoryImage.files[0]);
+            category.image = await handleImageUpload(file);
         } catch (error) {
-            alert(error);
+            showToast(error, "error");
             return;
         }
     }
 
     localStorage.setItem("categories", JSON.stringify(categories));
     editPopup.style.display = "none";
-    showToast("Category updated Successfully 🎉")
+    showToast("Category updated Successfully 🎉");
     renderCategories();
 });
 

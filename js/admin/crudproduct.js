@@ -53,6 +53,51 @@ function renderProducts() {
         `
     });
 }
+// ===== Validation Helper Functions ===== //
+function showError(input, message) {
+    const errorSpan = input.closest(".form_group").querySelector(".error_message");
+    errorSpan.textContent = message;
+    input.classList.add("error");
+}
+
+function clearError(input) {
+    const errorSpan = input.closest(".form_group").querySelector(".error_message");
+    errorSpan.textContent = "";
+    input.classList.remove("error");
+}
+
+function validateInput(input) {
+    const value = input.value.trim();
+    let isValid = true;
+
+    if (!value) {
+        showError(input, "This field is required");
+        isValid = false;
+    } else if (input.id === "price" && isNaN(parseFloat(value))) {
+        showError(input, "Please enter a valid price");
+        isValid = false;
+    } else if (input.id === "stockQuantity" && (isNaN(parseInt(value)) || parseInt(value) < 0)) {
+        showError(input, "Please enter a valid stock quantity");
+        isValid = false;
+    } else if (input.type === "file" && input.files.length === 0) {
+        showError(input, "Please upload an image");
+        isValid = false;
+    } else {
+        clearError(input);
+    }
+
+    return isValid;
+}
+
+function validateForm(form) {
+    const inputs = form.querySelectorAll(".form_input");
+    let formIsValid = true;
+    inputs.forEach((input) => {
+        if (!validateInput(input)) formIsValid = false;
+    });
+    return formIsValid;
+}
+
 
 // Handle Image Upload
 const handleImageUpload = (file) => {
@@ -68,9 +113,22 @@ const handleImageUpload = (file) => {
     });
 };
 
+
+const formInputs = document.querySelectorAll("#addproductForm .form_input");
+formInputs.forEach((input) => {
+    input.addEventListener("blur", () => {
+        validateInput(input);
+    });
+});
+
 // Add New Product
 addProductForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    if (!validateForm(addProductForm)) {
+        showToast("Please fix the errors in the form.", "error");
+        return;
+    }
 
     const file = productImageInput.files[0];
     try {
@@ -94,6 +152,7 @@ addProductForm.addEventListener("submit", async (e) => {
     }
 });
 
+
 // Open Edit Popup
 function openEditPopup(id) {
     editProductId = id;
@@ -106,8 +165,24 @@ function openEditPopup(id) {
     editPopup.style.display = "flex";
 }
 
-// Handle Update
-updateProductBtn.addEventListener("click", async () => {
+// ===== Edit Product Form Validation ===== //
+
+const editFormInputs = document.querySelectorAll("#editproductForm .form_input");
+
+editFormInputs.forEach((input) => {
+    input.addEventListener("blur", () => {
+        validateInput(input);
+    });
+});
+
+updateProductBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    if (!validateForm(editAddProductForm)) {
+        showToast("Please fix the errors in the form.", "error");
+        return;
+    }
+
     const product = products.find(p => p.id === editProductId);
     product.name = editProductNameInput.value.trim();
     product.description = editDescriptionInput.value.trim();
@@ -129,6 +204,7 @@ updateProductBtn.addEventListener("click", async () => {
     showToast("Product Updated Successfully 😍🎉");
     renderProducts();
 });
+
 // Hide edit popup
 cancelEditBtn.addEventListener("click", () => {
     editPopup.style.display = "none";

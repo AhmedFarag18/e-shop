@@ -166,6 +166,7 @@ Global Styles
     cursor: pointer;
     transition: .3s ease;
     cursor: pointer;
+    z-index: 20;
 }
 
 .btn-toTop i {

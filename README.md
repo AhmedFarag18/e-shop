@@ -2,41 +2,6 @@
 
 This is a simple E-Commerce project built using HTML, CSS, and JavaScript. The project includes Admin and Customer functionalities with Local Storage or Firebase as the database.
 
-## **📂 Project Structure**
-
-```
-/ecommerce-project
-│── /assets
-│   ├── /css
-│   │   ├── style.css 🎨 (Global styling)
-│   │   ├── admin.css 🛠️ (Admin-specific styles)
-│   │   ├── customer.css 🛍️ (Customer-specific styles)
-│   ├── /js
-│   │   ├── main.js ⚙️ (Handles general logic)
-│   │   ├── auth.js 🔐 (Handles login, register, logout)
-│   │   ├── admin.js 🛠️ (Admin functionalities)
-│   │   ├── customer.js 👤 (Customer functionalities)
-│   │   ├── cart.js 🛒 (Shopping cart logic)
-│   │   ├── wishlist.js ❤️ (Wishlist logic)
-│   │   ├── orders.js 📦 (Order-related operations)
-│   ├── /icons 🎭 (Boxicons or FontAwesome setup)
-│   ├── /images 🖼️ (Product and other images)
-│── /pages
-│   ├── index.html 🏠 (Homepage)
-│   ├── login.html 🔑 (Login page)
-│   ├── register.html 📝 (Register page)
-│   ├── admin.html 🛠️ (Admin Dashboard)
-│   ├── products.html 🛍️ (Product listing for customers)
-│   ├── product-details.html 📄 (Single product details)
-│   ├── cart.html 🛒 (Shopping cart)
-│   ├── wishlist.html ❤️ (Wishlist)
-│   ├── orders.html 📦 (Customer orders history)
-│── /data
-│   ├── data.json 📁 (Local storage backup - optional)
-│── README.md 📖 (Project documentation)
-│── index.html 🌍 (Main Entry Point)
-```
-
 ## 📜 Features
 
 ### **Admin Panel**
@@ -105,8 +70,8 @@ You can use **Local Storage** or **Firebase Realtime Database** to store:
 Example using Local Storage:
 
 ```js
-localStorage.setItem("users", JSON.stringify(usersArray));
-localStorage.setItem("products", JSON.stringify(productsArray));
+localStorage.setItem('users', JSON.stringify(usersArray));
+localStorage.setItem('products', JSON.stringify(productsArray));
 ```
 
 ## 🚀 Technology Stack
