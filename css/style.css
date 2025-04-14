@@ -136,7 +136,6 @@ Global Styles
 
 .loader:before {
     content: "E-SHOP";
-    font-family: var(--title-family);
     font-weight: 900;
 }
 
@@ -627,7 +626,7 @@ Product Card styles
 .product-card-footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     gap: 10px;
     margin-top: 10px;
 }
@@ -639,23 +638,22 @@ Product Card styles
 }
 
 /* Button */
-.product-btn-wishlist,
-.product-btn {
-    display: block;
-    background-color: var(--main-color);
-    color: #fff;
-    font-size: 14px;
-    padding: 10px 16px;
+
+.product-btn-wishlist.primary_btn,
+.product-btn.primary_btn {
+    padding: 12px 16px;
     border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s ease;
     cursor: pointer;
-    text-align: center;
-    font-size: 16px;
+    font-size: 14px;
+    height: 100%;
 }
 
-.product-btn {
+.product-btn.primary_btn {
     width: 100%;
+}
+
+.product-btn-wishlist.primary_btn {
+    background-color: var(--main-color);
 }
 
 /* start line clamp For display only spesfied lines */

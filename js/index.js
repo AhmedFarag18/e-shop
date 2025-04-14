@@ -1,3 +1,5 @@
+import { showToast } from "./utils.js";
+
 /*--------------------------  Change Navbar Background and show up to top Button --------------------------*/
 let btnToTop = document.querySelector(".btn-toTop");
 let navbar = document.querySelector(".navbar");
@@ -81,20 +83,4 @@ if (navLoginBtn) {
             </a>
         `;
     }
-}
-
-
-
-function showToast(message, status) {
-    const toast = document.querySelector(".toast");
-    if (!toast) return console.error("Toast element not found!");
-
-    toast.innerText = message;
-    toast.className = `toast show ${status === "error" ? "error" : ""}`;
-    toast.style.display = "flex"
-
-    setTimeout(() => {
-        toast.classList.remove("show")
-        toast.style.display = "none"
-    }, 3000);
 }

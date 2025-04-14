@@ -1,5 +1,4 @@
-const isGithub = location.hostname === "ahmedfarag18.github.io";
-const basePath = isGithub ? "/e-shop/" : "/";
+import { updateCartNavCount, displayProduct, basePath, addToCart, addToWishlist, products, initProductEvents } from './utils.js';
 
 const imgPath = basePath + "images/home/banner/";
 const heroImages = ["banner-02.jpg", "banner-03.png", "banner-04.jpg", "banner-05.jpg"];
@@ -47,7 +46,7 @@ function displayCategories(category) {
 // show Top Products
 
 const bestDealsProducts = document.querySelector(".best-deals-grid");
-const products = JSON.parse(localStorage.getItem("products")) || [];
+
 bestDealsProducts.innerHTML = ""
 if (products.length > 8) {
     products.slice(3, 7).forEach((product) => {
@@ -59,69 +58,9 @@ if (products.length > 8) {
     })
 }
 
-function displayProduct(product) {
-    return `<div class="product-card">
-                <img src="${product.image}" alt="${product.name}" class="product-card-image">
-                <div class="product-card-content">
-                    <div class="product-card-header">
-                        <span class="brand-label">${product.category}</span>
-                    </div>
-                    <h4 class="product-card-title line_clamp1">${product.name}</h4>
-                    <p class="product-card-desc line_clamp1">${product.description}</p>
-                    <p class="product-price">$${product.price}</p>
-                    <div class="product-card-footer">
-                        <button class="product-btn-wishlist" onclick="addToWishlist(${product.id})" title="Add to Wishlist"><i class="bx bx-heart"></i></button>
-                        <a href="${basePath}pages/singleproduct.html?id=${product.id}" class="product-btn" title="View Product Details">View Details</a>
-                    </div>
-                </div>
-            </div>`
-}
-
-
-// =================== Add to Wishlist ===================
-let productsWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-
-function addToWishlist(productId) {
-    let selectedProduct;
-    if (products.find((el) => el.id === productId)) {
-        products.find((el) => {
-            if (el.id === productId) {
-                selectedProduct = el;
-            }
-        })
-    }
-    // Check Product already Exist in wishlist
-    if (productsWishlist.find((el) => el.id == selectedProduct.id)) {
-        showToast("Product Already added in wishlist 🤷‍♂️", "error");
-        return;
-    } else {
-        productsWishlist.push(selectedProduct);
-        localStorage.setItem('wishlist', JSON.stringify(productsWishlist))
-        showToast("Product added to wishlist ❤");
-    }
-}
-
-/*--------------- Update Number of Items in Cart for Navbar --------------------- */
-function updateCartNavCount() {
-    // Update Navbar Cart total items
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    const navCartCount = document.querySelector(".nav-cart-count");
-    if (!cart) return;
-    navCartCount.innerText = cart.reduce((ele, item) => ele + item.quantity, 0);
-}
+// update cart navbar when page opens
 updateCartNavCount()
 
-/*--------------- SHOW TOAST NOTIFICATION --------------------- */
-function showToast(message, status) {
-    const toast = document.querySelector(".toast");
-    if (!toast) return console.error("Toast element not found!");
 
-    toast.innerText = message;
-    toast.className = `toast show ${status === "error" ? "error" : ""}`;
-    toast.style.display = "flex"
-
-    setTimeout(() => {
-        toast.classList.remove("show")
-        toast.style.display = "none"
-    }, 3000);
-}
+// initialize Product Events
+initProductEvents(bestDealsProducts);

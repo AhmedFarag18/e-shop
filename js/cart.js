@@ -1,3 +1,5 @@
+import { showToast, updateCartNavCount } from "./utils.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const cartContainer = document.querySelector(".cart-container");
     const orderSummary = document.querySelector(".order-summary")
@@ -159,29 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     renderCart();
+    // update cart navbar when page opens
+    updateCartNavCount()
 });
-
-
-
-// Update Navbar Cart total items
-function updateCartNavCount() {
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    const navCartCount = document.querySelector(".nav-cart-count");
-    if (!cart) return;
-    navCartCount.innerText = cart.reduce((ele, item) => ele + item.quantity, 0);
-}
-updateCartNavCount()
-
-function showToast(message, status) {
-    const toast = document.querySelector(".toast");
-    if (!toast) return console.error("Toast element not found!");
-
-    toast.innerText = message;
-    toast.className = `toast show ${status === "error" ? "error" : ""}`;
-    toast.style.display = "flex"
-
-    setTimeout(() => {
-        toast.classList.remove("show")
-        toast.style.display = "none"
-    }, 3000);
-}

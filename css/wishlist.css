@@ -49,14 +49,8 @@
     text-align: center;
 }
 
-.product-btn {
+.product-btn.remove-btn {
     background-color: var(--error-color);
-}
-
-.product-btn.show_details {
-    background-color: var(--dark-color);
-    color: #fff;
-    flex: 0;
 }
 
 .remove-btn {
