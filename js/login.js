@@ -1,27 +1,14 @@
 import { showToast } from "./utils.js";
 
-// Toggle password visibility
-function togglePassword() {
-    const passwordInput = document.querySelector('#password');
-    const eyeIcon = document.getElementById('eye-icon');
-
-    const isPasswordHidden = passwordInput.type === 'password';
-    passwordInput.type = isPasswordHidden ? 'text' : 'password';
-    eyeIcon.classList.replace(
-        isPasswordHidden ? 'bx-lock-alt' : 'bx-lock-open-alt',
-        isPasswordHidden ? 'bx-lock-open-alt' : 'bx-lock-alt'
-    );
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("loginForm");
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Validate input fields on blur
-    emailInput.addEventListener("blur", () => validateEmail());
-    passwordInput.addEventListener("blur", () => validatePassword());
+    // Validate input fields on keyup
+    emailInput.addEventListener("keyup", () => validateEmail());
+    passwordInput.addEventListener("keyup", () => validatePassword());
 
     // Form submit event
     form.addEventListener("submit", function (event) {
@@ -49,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Validate Password
     function validatePassword() {
         const passwordValue = passwordInput.value.trim();
-        if (passwordValue.length < 6) {
-            showError(passwordInput, "Password must be at least 6 characters.");
+        if (passwordValue.length < 8) {
+            showError(passwordInput, "Password must be at least 8 characters.");
             return false;
         } else {
             hideError(passwordInput);

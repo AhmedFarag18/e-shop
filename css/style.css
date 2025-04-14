@@ -97,7 +97,9 @@ Global Styles
     font-size: 22px;
 }
 
-
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
 
 /* -----------------------------------
 # LOADING
@@ -915,7 +917,12 @@ startsds errors for inputs
 }
 
 
-
+.form_label {
+    align-self: flex-start;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    color: var(--desc-color);
+}
 
 /* -----------------------------
 Footer  for pages

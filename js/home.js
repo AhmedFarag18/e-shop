@@ -1,4 +1,4 @@
-import { updateCartNavCount, displayProduct, basePath, addToCart, addToWishlist, products, initProductEvents } from './utils.js';
+import { updateCartNavCount, displayProduct, basePath, products, initProductEvents } from './utils.js';
 
 const imgPath = basePath + "images/home/banner/";
 const heroImages = ["banner-02.jpg", "banner-03.png", "banner-04.jpg", "banner-05.jpg"];

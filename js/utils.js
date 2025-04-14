@@ -20,7 +20,7 @@ export function notAllowed() {
 }
 
 /* ------------------------ Toast Component ------------------------*/
-export function showToast(message, status) {
+export function showToast(message, status, time = 5000) {
     const toast = document.querySelector(".toast");
     if (!toast) return console.error("Toast element not found!");
 
@@ -31,7 +31,7 @@ export function showToast(message, status) {
     setTimeout(() => {
         toast.classList.remove("show")
         toast.style.display = "none"
-    }, 3000);
+    }, time);
 }
 
 /* ------------------------ Update Navbar Cart total items ------------------------*/
@@ -162,3 +162,18 @@ export function addToCart(productId) {
     showToast("Product added to cart! 🛒");
     updateCartNavCount();
 }
+
+/* ------------------------ Toggle password visibility ------------------------ */
+export function togglePassword() {
+    const passwordInput = document.querySelector('#password');
+    const eyeIcon = document.getElementById('eye-icon');
+
+    const isPasswordHidden = passwordInput.type === 'password';
+    passwordInput.type = isPasswordHidden ? 'text' : 'password';
+    eyeIcon.classList.replace(
+        isPasswordHidden ? 'bx-lock-alt' : 'bx-lock-open-alt',
+        isPasswordHidden ? 'bx-lock-open-alt' : 'bx-lock-alt'
+    );
+}
+
+window.togglePassword = togglePassword;

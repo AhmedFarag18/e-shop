@@ -117,8 +117,7 @@
     font-size: 15px;
 }
 
-#cancelEditBtn,
-#cancelDeleteBtn {
+.primary_btn.cancel-btn {
     background-color: rgb(229, 52, 52);
     color: #fff;
     flex: 0 1 40%;

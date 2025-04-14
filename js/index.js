@@ -44,7 +44,7 @@ if (navLoginBtn) {
             <div class="user_is_logged">
                 <span>${currentUserData.username.slice(0, 2)}</span>
                 <ul class="user_menu">
-                    <li><a href="${currentUserData.email == "admin@admin.com" ? "../pages/admin/dashboard.html" : "../pages/orders.html"}">Profile</a></li>
+                    <li><a href="${currentUserData.email == "admin@admin.com" ? "pages/admin/dashboard.html" : "pages/orders.html"}">Profile</a></li>
                     <li><a href="#" class="log_out">Log out</a></li>
                 </ul>
             </div>
@@ -72,12 +72,12 @@ if (navLoginBtn) {
             localStorage.removeItem("currentUser");
             showToast("Logged out successfully!");
             setTimeout(() => {
-                window.location.href = "../pages/login.html";
+                window.location.href = "pages/login.html";
             }, 1000);
         });
     } else {
         navLoginBtn.innerHTML = `
-            <a href="../pages/login.html" class="primary_btn">
+            <a href="pages/login.html" class="primary_btn">
                 <span>Login</span>
                 <i class="bx bx-user"></i>
             </a>

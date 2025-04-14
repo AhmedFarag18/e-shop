@@ -226,6 +226,10 @@ nav {
         border-radius: 10px;
     }
 
+    .nav-links.nav-active {
+        right: auto;
+    }
+
     .nav-links li {
         opacity: 0;
     }

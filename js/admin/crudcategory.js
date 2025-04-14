@@ -1,3 +1,11 @@
+import { notAllowed, navSlide, showToast } from "../utils.js";
+
+// check if Authorization and Redirect
+notAllowed()
+
+// Change Navbar in Mobile View and handle Menu Button when page load
+window.addEventListener("DOMContentLoaded", () => navSlide());
+
 // Select Elements
 const addCategoryForm = document.getElementById("addCategoryForm");
 const categoryNameInput = document.getElementById("categoryName");
@@ -30,8 +38,8 @@ function renderCategories() {
                 <span>${category.name}</span>
             </div>
             <div class="category_actions">
-                <button class="edit_btn" onclick="openEditPopup(${category.id})">Edit</button>
-                <button class="delete_btn" onclick="openDeletePopup(${category.id})">Delete</button>
+                <button class="edit_btn" onclick="openEditCategoryPopup(${category.id})">Edit</button>
+                <button class="delete_btn" onclick="openDeleteCategoryPopup(${category.id})">Delete</button>
             </div>
         `;
         categoryContainer.appendChild(categoryCard);
@@ -44,6 +52,9 @@ function validateCategoryName(inputEl) {
     if (name.length < 3) {
         errorSpan.textContent = "Category name must be at least 3 characters.";
         return false;
+    } else if (!/^[a-zA-Z0-9\s]+$/.test(name)) {
+        errorSpan.textContent = "Category name must contain only letters, numbers, and spaces.";
+        return false;
     }
     errorSpan.textContent = "";
     return true;
@@ -52,14 +63,15 @@ function validateCategoryName(inputEl) {
 function validateImage(inputEl) {
     const errorSpan = inputEl.nextElementSibling;
     const file = inputEl.files[0];
-    if (!file) {
-        errorSpan.textContent = "Image is required.";
-        return false;
-    }
 
-    const validTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
-    if (!validTypes.includes(file.type)) {
-        errorSpan.textContent = "Only JPG, PNG, or WEBP images are allowed.";
+    if (!file) {
+        errorSpan.textContent = "Please upload an image.";
+        return false;
+    } else if (file.size > 2 * 1024 * 1024) {
+        errorSpan.textContent = "Image size must be less than 2MB.";
+        return false;
+    } else if (!/(\.jpg|\.jpeg|\.svg|\.png|\.gif)$/i.test(file.name)) {
+        errorSpan.textContent = "Invalid image format. Only JPG, JPEG, PNG, SVG, and GIF files are allowed.";
         return false;
     }
 
@@ -83,10 +95,10 @@ const handleImageUpload = (file) => {
 
 
 // Live validation on blur/change
-categoryNameInput.addEventListener("blur", () => validateCategoryName(categoryNameInput));
+categoryNameInput.addEventListener("keyup", () => validateCategoryName(categoryNameInput));
 categoryImageInput.addEventListener("change", () => validateImage(categoryImageInput));
 
-editCategoryName.addEventListener("blur", () => validateCategoryName(editCategoryName));
+editCategoryName.addEventListener("keyup", () => validateCategoryName(editCategoryName));
 editCategoryImage.addEventListener("change", () => validateImage(editCategoryImage));
 
 // Add New Category
@@ -120,7 +132,7 @@ addCategoryForm.addEventListener("submit", async (e) => {
 });
 
 // Open Edit Popup
-function openEditPopup(id) {
+function openEditCategoryPopup(id) {
     editCategoryId = id;
     const category = categories.find(c => c.id === id);
     editCategoryName.value = category.name;
@@ -166,7 +178,7 @@ cancelEditBtn.addEventListener("click", () => {
 });
 
 // Open Delete Popup
-function openDeletePopup(id) {
+function openDeleteCategoryPopup(id) {
     deleteCategoryId = id;
     deletePopup.style.display = "flex";
 }
@@ -189,64 +201,5 @@ cancelDeleteBtn.addEventListener("click", () => {
 renderCategories();
 
 
-
-
-function showToast(message, status) {
-    const toast = document.querySelector(".toast");
-    if (!toast) return console.error("Toast element not found!");
-
-    toast.innerText = message;
-    toast.className = `toast show ${status === "error" ? "error" : ""}`;
-    toast.style.display = "flex"
-
-    setTimeout(() => {
-        toast.classList.remove("show")
-        toast.style.display = "none"
-    }, 3000);
-}
-
-
-
-function navSlide() {
-    const burger = document.querySelector(".burger");
-    const nav = document.querySelector(".nav-links");
-    const navLinks = document.querySelectorAll(".nav-links li");
-
-    burger.addEventListener("click", () => {
-        //Toggle Nav
-        nav.classList.toggle("nav-active");
-
-        //Animate Links
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = ""
-            } else {
-                link.style.animation = `navLinkFade 0.3s ease forwards ${index / 4 + 0.3}s`;
-            }
-        });
-        //Burger Animation
-        burger.classList.toggle("toggle");
-    });
-
-}
-
-navSlide();
-
-
-// check if it's not admin or not signed in
-window.addEventListener("load", () => {
-    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
-    if (currentUser) {
-        if (currentUser.email !== "admin@admin.com") notAllowed()
-    } else {
-        notAllowed()
-    }
-})
-
-function notAllowed() {
-    showToast("You are Not allowed Admin to access this", "error");
-    setTimeout(() => {
-        window.location.href = "/index.html";
-    }, 0);
-}
+window.openEditCategoryPopup = openEditCategoryPopup
+window.openDeleteCategoryPopup = openDeleteCategoryPopup

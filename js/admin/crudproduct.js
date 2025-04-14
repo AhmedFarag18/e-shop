@@ -1,5 +1,9 @@
 import { notAllowed, navSlide, showToast, products } from "../utils.js";
 
+
+// Change Navbar in Mobile View and handle Menu Button when page load
+window.addEventListener("DOMContentLoaded", () => navSlide());
+
 // Select Elements
 const addProductForm = document.getElementById("addproductForm");
 const productNameInput = document.getElementById("productName");
@@ -20,6 +24,8 @@ const editStockQuantityInput = document.getElementById("editStockQuantity");
 const editProductImageInput = document.getElementById("editProductImage");
 
 // Popups & Buttons
+const addPopup = document.getElementById("addPopup");
+const cancelAddBtn = document.getElementById("cancelAddBtn");
 const editPopup = document.getElementById("editPopup");
 const deletePopup = document.getElementById("deletePopup");
 const updateProductBtn = document.getElementById("updateProductBtn");
@@ -33,9 +39,6 @@ let deleteProductId = null;
 
 // check if Authorization and Redirect
 notAllowed()
-
-// Change Navbar in Mobile View and handle Menu Button
-navSlide();
 
 // Function to Render Products
 function renderProducts() {
@@ -128,6 +131,9 @@ formInputs.forEach((input) => {
     });
 });
 
+function openAddPopup() {
+    addPopup.style.display = "flex";
+}
 // Add New Product
 addProductForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -213,8 +219,12 @@ updateProductBtn.addEventListener("click", async (e) => {
 });
 
 // Hide edit popup
-cancelEditBtn.addEventListener("click", () => {
+cancelEditBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     editPopup.style.display = "none";
+});
+cancelAddBtn.addEventListener("click", () => {
+    addPopup.style.display = "none";
 });
 // Open Delete Popup
 function openDeletePopup(id) {
@@ -238,3 +248,9 @@ cancelDeleteBtn.addEventListener("click", () => {
 
 // Load Products on Page Load
 renderProducts();
+
+
+// make add , edit , delete to with window to can use it
+window.openAddPopup = openAddPopup;
+window.openEditPopup = openEditPopup;
+window.openDeletePopup = openDeletePopup;
