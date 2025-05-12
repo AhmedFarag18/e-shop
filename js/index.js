@@ -1,4 +1,4 @@
-import { showToast } from "./utils.js";
+import { basePath, showToast } from "./utils.js";
 
 /*--------------------------  Change Navbar Background and show up to top Button --------------------------*/
 let btnToTop = document.querySelector(".btn-toTop");
@@ -44,7 +44,7 @@ if (navLoginBtn) {
             <div class="user_is_logged">
                 <span>${currentUserData.username.slice(0, 2)}</span>
                 <ul class="user_menu">
-                    <li><a href="${currentUserData.email == "admin@admin.com" ? "../pages/admin/dashboard.html" : "../pages/orders.html"}">Profile</a></li>
+                    <li><a href="${basePath}pages/${currentUserData.email === "admin@admin.com" ? "admin/dashboard.html" : "orders.html"}">Profile</a></li>
                     <li><a href="#" class="log_out">Log out</a></li>
                 </ul>
             </div>
