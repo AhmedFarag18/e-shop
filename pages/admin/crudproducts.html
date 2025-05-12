@@ -54,7 +54,8 @@
                     <div class="form_group">
                         <label class="form_label" for="productName">Product Name</label>
                         <div class="form_input_group">
-                            <input type="text" class="form_input" id="productName" placeholder="Product Name" required>
+                            <input type="text" name="productName" class="form_input" id="productName"
+                                placeholder="Product Name">
                         </div>
                         <span class="error_message"></span>
                     </div>
@@ -63,7 +64,8 @@
                     <div class="form_group">
                         <label class="form_label" for="description">Description</label>
                         <div class="form_input_group">
-                            <input type="text" class="form_input" id="description" placeholder="Description" required>
+                            <input type="text" name="description" class="form_input" id="description"
+                                placeholder="Description">
                         </div>
                         <span class="error_message"></span>
                     </div>
@@ -72,7 +74,7 @@
                     <div class="form_group">
                         <label class="form_label" for="price">Price</label>
                         <div class="form_input_group">
-                            <input type="text" class="form_input" id="price" placeholder="Price" required>
+                            <input type="text" name="price" class="form_input" id="price" placeholder="Price">
                         </div>
                         <span class="error_message"></span>
                     </div>
@@ -81,11 +83,10 @@
                     <div class="form_group">
                         <label class="form_label" for="category">Category</label>
                         <div class="form_input_group">
-                            <input type="text" class="form_input" list="category_list" id="category"
-                                placeholder="Category" required>
+                            <select type="text" name="category" class="form_input selectBox_category" id="category"
+                                placeholder="Category">
+                            </select>
                         </div>
-                        <datalist id="category_list">
-                        </datalist>
                         <span class="error_message"></span>
                     </div>
 
@@ -93,8 +94,8 @@
                     <div class="form_group">
                         <label class="form_label" for="stockQuantity">Stock Quantity</label>
                         <div class="form_input_group">
-                            <input type="number" class="form_input" id="stockQuantity" placeholder="Stock Quantity"
-                                required>
+                            <input type="number" name="stockQuantity" class="form_input" id="stockQuantity"
+                                placeholder="Stock Quantity">
                         </div>
                         <span class="error_message"></span>
                     </div>
@@ -103,7 +104,7 @@
                     <div class="form_group">
                         <label class="form_label" for="productImage">Product Image</label>
                         <div class="form_input_group">
-                            <input type="file" class="form_input" id="productImage" required>
+                            <input type="file" name="productImage" class="form_input" id="productImage">
                         </div>
                         <span class="error_message"></span>
                     </div>
@@ -130,8 +131,8 @@
                     <div class="form_group">
                         <label class="form_label" for="editProductName">Product Name</label>
                         <div class="form_input_group">
-                            <input type="text" class="form_input" id="editProductName" placeholder="Product Name"
-                                required>
+                            <input type="text" class="form_input" id="editProductName" name="productName"
+                                placeholder="Product Name">
                         </div>
                         <span class="error_message"></span>
                     </div>
@@ -141,7 +142,7 @@
                         <label class="form_label" for="editDescription">Description</label>
                         <div class="form_input_group">
                             <input type="text" class="form_input" name="description" id="editDescription"
-                                placeholder="Description" required>
+                                placeholder="Description">
                         </div>
                         <span class="error_message"></span>
                     </div>
@@ -150,8 +151,7 @@
                     <div class="form_group">
                         <label class="form_label" for="editPrice">Price</label>
                         <div class="form_input_group">
-                            <input type="text" class="form_input" name="price" id="editPrice" placeholder="Price"
-                                required>
+                            <input type="text" class="form_input" name="price" id="editPrice" placeholder="Price">
                         </div>
                         <span class="error_message"></span>
                     </div>
@@ -160,11 +160,10 @@
                     <div class="form_group">
                         <label class="form_label" for="editCategory">Category</label>
                         <div class="form_input_group">
-                            <input type="text" name="category" class="form_input" list="editCategory_list"
-                                id="editCategory" placeholder="Category" required>
+                            <select type="text" name="category" class="form_input selectBox_editCategory"
+                                id="editCategory" placeholder="Category">
+                            </select>
                         </div>
-                        <datalist id="editCategory_list">
-                        </datalist>
                         <span class="error_message"></span>
                     </div>
 
@@ -173,7 +172,7 @@
                         <label class="form_label" for="editStockQuantity">Stock Quantity</label>
                         <div class="form_input_group">
                             <input type="number" name="stockQuantity" class="form_input" id="editStockQuantity"
-                                placeholder="Stock Quantity" required>
+                                placeholder="Stock Quantity">
                         </div>
                         <span class="error_message"></span>
                     </div>
@@ -183,6 +182,8 @@
                         <label class="form_label" for="editProductImage">Product Image</label>
                         <div class="form_input_group">
                             <input type="file" class="form_input" name="productImage" id="editProductImage">
+                            <!-- Image preview -->
+                            <img id="editImagePreview" style="max-width: 60px; height: 60px;margin-left: 6px;" />
                         </div>
                         <span class="error_message"></span>
                     </div>
