@@ -1,77 +1,49 @@
-# **E-Commerce Project**
+# 🛒 e-Shop
 
-This is a simple E-Commerce project built using HTML, CSS, and JavaScript. The project includes Admin and Customer functionalities with Local Storage or Firebase as the database.
+**e-Shop** is a responsive e-commerce website built using **HTML**, **CSS**, and **JavaScript**, featuring both customer and admin functionalities — all powered by **Local Storage**, with no backend.
 
-## 📜 Features
+## 🔑 Main Features
 
-### **Admin Panel**
+- 🔐 Login & Register pages  
+- 🛍️ Product listing with search, filters & sorting  
+- ❤️ Wishlist and 🛒 Shopping cart (Local Storage)  
+- ✅ Order placement and history  
+- 🧑‍💼 Admin panel for managing products, categories & orders  
 
-- ✅ Full **CRUD** operations on **Products** (Add, Edit, Delete, Validate)
-- ✅ Full **CRUD** operations on **Categories**
-- ✅ **Confirm/Reject** customer orders
-- ✅ View all orders
+## 💻 Technologies Used
 
-### **Customer Panel**
+- HTML5, CSS3, JavaScript (Vanilla)  
+- Boxicons / FontAwesome  
+- Local Storage for data persistence  
+- Fully responsive layout  
 
-- 👀 **View Products** with filtering and sorting
-- ❤️ **Wishlist** (Stored in Local Storage)
-- 🛒 **Shopping Cart** (Add, Remove, Update Quantity)
-- 📦 **Place Orders** (Orders stay pending until admin confirms/rejects)
-- 🔄 **View Previous Orders**
+## 🚀 Getting Started
 
-## 🖥️ Page Details
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AhmedFarag18/e-shop.git
 
-### **1. Homepage (index.html) 🏠**
+2. Open `index.html` in your browser or use **Live Server** in VS Code.
 
-- 🎯 Hero Section
-- 🆕 Latest Products
-- 🏆 Best Categories
+## 📁 Pages Included
 
-### **2. Login (login.html) 🔑**
+- `index.html` – Homepage  
+- `product.html` – Product details  
+- `cart.html` – Shopping cart  
+- `wishlist.html` – Wishlist  
+- `orders.html` – Order history  
+- `login.html` / `register.html` – Auth pages  
+- `admin.html` – Admin dashboard  
 
-- 🔐 Login form with validation.
+## 📌 Project Status
 
-### **3. Register (register.html) 📝**
+✅ Completed core functionalities  
+🔜 Planning to add Firebase for database & authentication  
 
-- 🆕 Registration form with user type selection (Admin or Customer).
+## 🌐 Live Demo
 
-### **4. Admin Dashboard (admin.html) 🛠️**
+[See Live](https://ahmedfarag18.github.io/e-shop/)
 
-- 📊 Manage products, categories, and orders.
+---
 
-### **5. Products Page (products.html) 🛍️**
-
-- 🏷️ Shows all products with filtering options.
-
-### **6. Product Details (product-details.html) 📄**
-
-- 🖼️ Displays product info with Add to Cart/Wishlist buttons.
-
-### **7. Shopping Cart (cart.html) 🛒**
-
-- 🛍️ View, update, and proceed to checkout.
-
-### **8. Wishlist (wishlist.html) ❤️**
-
-- 📌 View and move items to cart.
-
-### **9. Orders Page (orders.html) 📦**
-
-- 👤 Customers: View past orders.
-- 🛠️ Admin: Manage orders.
-
-## 📊 Database (Local Storage)
-
-I use **Local Storage** to store:
-
-- 👤 Users
-- 🏷️ Products
-- 📦 Orders
-- ❤️ Wishlist
-
-## 🚀 Technology Stack
-
-- 🎨 **HTML & CSS** (Styling and Layout)
-- ⚡ **JavaScript** (Functionality and Data Handling)
-- 🎭 **Boxicons** (Icons)
-- 🗄️ **Local Storage** (Database Management)
+👨‍💻 Developed by [Ahmed Farag](https://github.com/AhmedFarag18)
