@@ -23,7 +23,9 @@ This is a simple E-Commerce project built using HTML, CSS, and JavaScript. The p
 
 ### **1. Homepage (index.html) 🏠**
 
-- 🔍 Displays products with search and filter functionality.
+- 🎯 Hero Section
+- 🆕 Latest Products
+- 🏆 Best Categories
 
 ### **2. Login (login.html) 🔑**
 
@@ -58,21 +60,14 @@ This is a simple E-Commerce project built using HTML, CSS, and JavaScript. The p
 - 👤 Customers: View past orders.
 - 🛠️ Admin: Manage orders.
 
-## 📊 Database (Local Storage or Firebase)
+## 📊 Database (Local Storage)
 
-You can use **Local Storage** or **Firebase Realtime Database** to store:
+I use **Local Storage** to store:
 
 - 👤 Users
 - 🏷️ Products
 - 📦 Orders
 - ❤️ Wishlist
-
-Example using Local Storage:
-
-```js
-localStorage.setItem('users', JSON.stringify(usersArray));
-localStorage.setItem('products', JSON.stringify(productsArray));
-```
 
 ## 🚀 Technology Stack
 
@@ -80,5 +75,3 @@ localStorage.setItem('products', JSON.stringify(productsArray));
 - ⚡ **JavaScript** (Functionality and Data Handling)
 - 🎭 **Boxicons** (Icons)
 - 🗄️ **Local Storage** (Database Management)
-
-Happy Coding! 🚀
