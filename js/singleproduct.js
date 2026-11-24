@@ -31,6 +31,84 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".single_product_price").innerText = `$${product.price}`
     document.querySelector(".single_product_description").innerText = product.description
 
+    // Customer Reviews Functionality
+
+    const reviewForm = document.getElementById("review-form");
+    const reviewsContainer = document.getElementById("reviews-container");
+    const averageRating = document.getElementById("average-rating");
+    const ratingStars = document.getElementById("rating-stars");
+    const reviewsCount = document.getElementById("reviews-count");
+
+    // Get reviews for the current product
+    function getReviews() {
+        const allReviews = JSON.parse(localStorage.getItem("reviews")) || [];
+        return allReviews.filter(review => review.productId == product.id);
+    }
+
+    // Display reviews
+    function displayReviews() {
+        const reviews = getReviews();
+
+        reviewsContainer.innerHTML = "";
+
+        if (reviews.length === 0) {
+            reviewsContainer.innerHTML = "<p>No reviews yet. Be the first to review!</p>";
+        }
+
+        reviews.forEach(review => {
+            reviewsContainer.innerHTML += `
+                <div class="review-item">
+                    <h4>${review.name}</h4>
+                    <p class="review-stars">${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}</p>
+                    <p>${review.comment}</p>
+                </div>
+            `;
+        });
+
+        // Calculate average rating
+        const total = reviews.reduce((sum, review) => sum + review.rating, 0);
+        const average = reviews.length ? (total / reviews.length).toFixed(1) : "0.0";
+
+        averageRating.textContent = `${average} / 5`;
+        ratingStars.textContent = "★".repeat(Math.round(Number(average))) +
+                                  "☆".repeat(5 - Math.round(Number(average)));
+        reviewsCount.textContent = `${reviews.length} reviews`;
+    }
+
+    // Submit a new review
+    reviewForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById("review-name").value.trim();
+        const rating = Number(document.getElementById("review-rating").value);
+        const comment = document.getElementById("review-comment").value.trim();
+
+        if (!name || !rating || !comment) {
+            showToast("Please complete all fields!", "error");
+            return;
+        }
+
+        const allReviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+        allReviews.push({
+            productId: product.id,
+            name: name,
+            rating: rating,
+            comment: comment
+        });
+
+        localStorage.setItem("reviews", JSON.stringify(allReviews));
+
+        showToast("Review submitted successfully!");
+
+        reviewForm.reset();
+        displayReviews();
+    });
+
+    // Load existing reviews
+    displayReviews();
+
+
 
     // Quantity Input Logic
     const qtyInput = document.querySelector(".pro-qty input");

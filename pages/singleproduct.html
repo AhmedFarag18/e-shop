@@ -105,6 +105,66 @@
         </div>
     </section>
 
+    <!-- Customer Reviews Section -->
+    <section class="customer-reviews">
+        <div class="container">
+
+            <h2>Customer Reviews</h2>
+
+            <div class="reviews-summary">
+                <h3 id="average-rating">0.0 / 5</h3>
+                <div id="rating-stars"></div>
+                <p id="reviews-count">0 reviews</p>
+            </div>
+
+            <!-- Review Form -->
+            <div class="review-form">
+                <h3>Write a Review</h3>
+
+                <form id="review-form">
+
+                    <label for="review-name">Your Name</label>
+                    <input
+                        type="text"
+                        id="review-name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                    <label for="review-rating">Your Rating</label>
+                    <select id="review-rating" required>
+                        <option value="">Select rating</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="1">1 Star</option>
+                    </select>
+
+                    <label for="review-comment">Your Comment</label>
+                    <textarea
+                        id="review-comment"
+                        placeholder="Write your review..."
+                        required
+                    ></textarea>
+
+                    <button type="submit" class="primary_btn">
+                        Submit Review
+                    </button>
+
+                </form>
+            </div>
+
+            <!-- Reviews List -->
+            <div class="reviews-list">
+                <h3>What Customers Say</h3>
+                <div id="reviews-container"></div>
+            </div>
+
+        </div>
+    </section>
+
+
 
 
     <section class="best-deals">
