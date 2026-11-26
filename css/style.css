@@ -304,17 +304,6 @@ Global Styles
     opacity: 1;
     width: 100%;
 }
-/* Active Navbar Link */
-.nav-menu>li>.nav-menu-item.active {
-    color: var(--main-color);
-    font-weight: 600;
-}
-
-.nav-menu>li>.nav-menu-item.active::before {
-    opacity: 1;
-    width: 100%;
-    background-color: var(--main-color);
-}
 
 .nav-icons {
     display: flex;
