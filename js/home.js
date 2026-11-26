@@ -64,3 +64,39 @@ updateCartNavCount()
 
 // initialize Product Events
 initProductEvents(bestDealsProducts);
+
+/* Product Search */
+const searchInput = document.querySelector("#product-search-input");
+const clearSearchBtn = document.querySelector("#clear-search");
+const searchMessage = document.querySelector("#search-results-message");
+
+if (searchInput && clearSearchBtn && searchMessage) {
+
+    function searchProducts() {
+        const searchValue = searchInput.value.trim().toLowerCase();
+
+        const filteredProducts = products.filter(product =>
+            product.name.toLowerCase().includes(searchValue)
+        );
+
+        bestDealsProducts.innerHTML = "";
+
+        filteredProducts.forEach(product => {
+            bestDealsProducts.innerHTML += displayProduct(product);
+        });
+
+        searchMessage.textContent = filteredProducts.length
+            ? `${filteredProducts.length} product(s) found`
+            : "No products found";
+
+        initProductEvents(bestDealsProducts);
+    }
+
+    searchInput.addEventListener("input", searchProducts);
+
+    clearSearchBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        searchProducts();
+    });
+}
+
